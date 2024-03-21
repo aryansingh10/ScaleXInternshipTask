@@ -39,11 +39,11 @@ const getPairById = async (req, res, next) => {
   const { id } = req.params;
 
   try {
-    const updatedPairr = await Pair.findByIdAndUpdate(id, req.body, { new: true });
-    if (!updatedPairr) {
+    const updatedPair = await Pair.findByIdAndUpdate(id, req.body, { new: true });
+    if (!updatedPair) {
       return res.status(404).json({ message: 'Pair not found' });
     }
-    res.status(200).json(updatedPairr);
+    res.status(200).json(updatedPair);
   } catch (error) {
     next(error);
   }
